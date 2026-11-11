@@ -176,8 +176,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tate .c2 b{margin-bottom:.35em}
 .tate .c3{margin-top:1.5em}
 .hero .sq{inset:0}
-@media(max-width:860px){
-  .hero-in{grid-template-columns:minmax(0,1fr);min-height:0}
+@media(max-width:1000px){
+  .hero-in{min-height:0}
+  .hero-fig{min-height:clamp(340px,52vw,520px)}
+}
+@media(max-width:700px){
+  .hero-in{grid-template-columns:minmax(0,1fr)}
   .hero-text{padding-bottom:8px}
   .hero-fig{min-height:0;aspect-ratio:1/1.02}
 }
@@ -220,6 +224,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   .facts{grid-template-columns:minmax(0,1fr)}
   .notice{left:0}
   .about-fig .block{right:0}
+  .about-fig{max-width:520px;width:100%;margin-inline:auto}
 }
 
 /* ---------- 選ばれる理由(横に流れる) ---------- */
@@ -253,14 +258,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .gal.pinned .gal-track{will-change:transform}
 .gal.pinned .tile{flex-basis:min(30vw,420px)}
 .gal.pinned .gal-intro{flex-basis:min(36vw,480px)}
-/* マウス操作で固定表示にならない場合は、折り返して全カードを見せる */
-@media(hover:hover) and (pointer:fine){
-  .gal:not(.pinned) .gal-scroller{overflow:visible}
-  .gal:not(.pinned) .gal-track{flex-wrap:wrap;row-gap:56px}
-  .gal:not(.pinned) .gal-intro{flex-basis:100%}
-  .gal:not(.pinned) .tile{flex:1 1 300px}
-  .gal:not(.pinned) .gal-bar{display:none}
-}
+/* 固定表示にならない画面(スマホ・タブレットなど)では、折り返して全カードを見せる */
+.gal:not(.pinned) .gal-scroller{overflow:visible}
+.gal:not(.pinned) .gal-track{flex-wrap:wrap;row-gap:56px}
+.gal:not(.pinned) .gal-intro{flex-basis:100%;padding-right:0;margin-bottom:8px}
+.gal:not(.pinned) .tile{flex:1 1 280px}
+.gal:not(.pinned) .gal-bar{display:none}
 
 /* ---------- サービス ---------- */
 .svc-grid{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1fr);gap:clamp(40px,6vw,104px);align-items:start}
@@ -278,7 +281,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .services .ghost{left:-.1em;bottom:-.1em;writing-mode:horizontal-tb}
 @media(max-width:860px){
   .svc-grid{grid-template-columns:minmax(0,1fr)}
-  .svc-fig{position:relative;top:0;aspect-ratio:16/11}
+  .svc-fig{position:relative;top:0;aspect-ratio:16/11;max-width:640px;width:100%}
   .svc{grid-template-columns:52px minmax(0,1fr)}
 }
 
@@ -306,6 +309,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tsu-card h3{font-size:clamp(26px,2.9vw,40px);font-weight:700;letter-spacing:.1em;line-height:1.4;margin-top:18px;text-align:center;white-space:nowrap}
 .tsu-card h3 i{font-style:normal;color:var(--green);background:linear-gradient(transparent 66%,var(--sage-l) 66%)}
 .tsu-card .say{font-family:var(--maru);font-weight:700;font-size:15.5px;line-height:1.9;letter-spacing:.06em;color:var(--green);text-align:center;border-block:1.5px solid var(--sage);padding:10px 4px;margin:16px 0 18px}
+.tsu-card .txt{font-size:14.5px;line-height:2.15;color:#3B423E;margin-top:18px;padding-top:18px;border-top:1.5px solid var(--sage)}
 .tsu-card ul{list-style:none;display:grid;gap:14px}
 .tsu-card li{font-size:13.5px;line-height:1.95;color:#3B423E;padding-left:20px;position:relative}
 .tsu-card li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:9px;border:1.5px solid var(--green)}
@@ -403,7 +407,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .contact .kicker{justify-content:center;color:var(--sage)}
 .contact h2{font-size:clamp(26px,4.6vw,62px);line-height:1.5;letter-spacing:.1em;margin-bottom:clamp(20px,2.4vw,32px)}
 .contact .lead{max-width:34em;margin:0 auto clamp(24px,3vw,36px);color:#DCE6DF}
-.free{display:inline-block;font-family:var(--maru);font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--deep);background:#fff;border:1.5px solid var(--ink);padding:6px 20px;margin-bottom:clamp(28px,3.4vw,44px);transform:rotate(-2deg)}
+.free{display:inline-block;font-family:var(--maru);font-weight:700;font-size:14px;letter-spacing:.2em;color:var(--deep);background:#fff;border:1.5px solid var(--ink);padding:6px 20px;margin-bottom:clamp(28px,3.4vw,44px);transform:rotate(-2deg);max-width:100%;word-break:auto-phrase;line-height:1.7}
 .contact-btns{display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
 .contact-btns .btn{min-width:260px;min-height:66px;box-shadow:6px 6px 0 rgba(0,0,0,.28)}
 .contact-btns .btn:hover{box-shadow:2px 2px 0 rgba(0,0,0,.28)}
@@ -453,7 +457,7 @@ footer{background:var(--deep);color:#C4D2C9;border-top:1.5px solid rgba(255,255,
 .toc a{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;background:#fff;border:1.5px solid var(--ink);box-shadow:4px 4px 0 var(--sage-l);font-family:var(--maru);font-weight:700;font-size:13.5px;letter-spacing:.1em;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .toc a:hover{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--sage-l)}
 .toc a b{font-family:var(--dots);font-weight:700;font-size:11px;color:var(--sage)}
-.path3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,36px);list-style:none;margin-top:clamp(32px,4vw,52px)}
+.path3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:820px;gap:clamp(18px,2.4vw,36px);list-style:none;margin-top:clamp(32px,4vw,52px)}
 .path3 li{padding:clamp(20px,2.4vw,30px)}
 .path3 .n{font-family:var(--dots);font-weight:700;font-size:clamp(30px,3.4vw,46px);line-height:1;color:var(--green)}
 .path3 .n small{font-family:var(--maru);font-size:.36em;margin-left:.3em;color:var(--ink)}
@@ -492,4 +496,21 @@ footer{background:var(--deep);color:#C4D2C9;border-top:1.5px solid rgba(255,255,
   .chap{grid-template-columns:minmax(0,1fr)}
   .chap-side{position:static}
   .path3,.cases{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---------- 小さな画面の仕上げ ---------- */
+@media(max-width:560px){
+  .btn{white-space:normal;text-align:center;padding:12px 22px;line-height:1.6}
+  .hero-btns .btn,.contact-btns .btn{width:100%;min-width:0}
+  .free{font-size:13px;letter-spacing:.12em;padding:6px 14px}
+  .yago{grid-template-columns:minmax(0,1fr);justify-items:start}
+  .fact{gap:10px 16px}
+  .toc a{font-size:12.5px;padding:0 14px}
+  .prin li{padding-left:40px}
+  .faq summary{font-size:14px}
+}
+@media(max-width:360px){
+  :root{--gut-l:max(16px, env(safe-area-inset-left, 0px));--gut-r:max(16px, env(safe-area-inset-right, 0px))}
+  .brand b{font-size:10px;letter-spacing:.06em}
+  .brand img{width:38px}
 }
