@@ -188,12 +188,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero-fig .ill{position:absolute;left:-8%;bottom:0;width:94%;max-width:none}
 .tate{
   position:absolute;top:0;right:3%;z-index:2;
-  writing-mode:vertical-rl;font-family:var(--maru);font-weight:500;font-size:clamp(16px,1.75vw,25px);letter-spacing:.2em;line-height:1.9;
+  writing-mode:vertical-rl;font-family:var(--maru);font-weight:500;font-size:clamp(15px,1.6vw,23px);letter-spacing:.2em;line-height:1.9;
   display:flex;flex-direction:column;align-items:flex-start;gap:.5em;white-space:nowrap;
 }
 .tate b{font-weight:500;color:var(--green);border:1.5px solid var(--green);padding:.5em .2em;line-height:1.45;background:var(--paper)}
-.tate b:nth-child(2){margin-top:1.4em}
-.tate span{margin-top:2.6em}
+.tate .c2{margin-top:1.4em}
+.tate .c2 b{margin-bottom:.35em}
+.tate .c3{margin-top:1.5em}
 .hero .sq{inset:0}
 @media(max-width:860px){
   .hero-in{grid-template-columns:minmax(0,1fr);min-height:0}
@@ -203,7 +204,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media(max-width:420px){
   .hero-fig{aspect-ratio:1/1.18}
   .tate{font-size:14px;letter-spacing:.14em}
-  .tate span{margin-top:1.6em}
+  .tate .c3{margin-top:2.4em}
 }
 
 /* ---------- 流れる業種名 ---------- */
@@ -342,9 +343,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pf-photo:hover img{transform:scale(1.05)}
 .pf-text .pf-name{font-family:var(--maru);font-weight:500;font-size:clamp(28px,3.4vw,44px);letter-spacing:.18em;line-height:1.4}
 .pf-text .pf-en{font-family:var(--dots);font-weight:700;font-size:11px;letter-spacing:.24em;color:var(--green);margin-top:6px}
-.pf-text .pf-role{font-size:14px;font-weight:700;letter-spacing:.14em;color:var(--green);margin-top:16px;padding-bottom:22px;border-bottom:1.5px solid var(--hair);margin-bottom:24px}
+.pf-text .pf-role{font-size:14px;font-weight:700;letter-spacing:.14em;color:var(--green);margin-top:16px;padding-bottom:22px;border-bottom:1.5px solid var(--ink);margin-bottom:24px}
 .pf-text p{font-size:14.5px;color:#3B423E;line-height:2.2}
-.pf-text p+p{margin-top:1.4em}
+.pf-story>div{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:8px 20px;padding-block:20px;border-bottom:1.5px solid var(--hair)}
+.pf-story>div:first-child{padding-top:0}
+.pf-story dt{font-family:var(--maru);font-weight:700;font-size:15px;letter-spacing:.2em;color:var(--green);display:flex;align-items:center;gap:10px;align-self:start;line-height:2.1}
+.pf-story dt::before{content:"";width:9px;height:9px;background:var(--sage);flex:none}
+.pf-story dd{font-size:14.5px;color:#3B423E;line-height:2.1}
+@media(max-width:560px){.pf-story>div{grid-template-columns:minmax(0,1fr)}}
 .cv{margin-top:clamp(52px,6vw,88px);display:grid;grid-template-columns:minmax(0,.6fr) minmax(0,1fr);gap:clamp(36px,6vw,104px)}
 .cv h3{font-family:var(--maru);font-weight:700;font-size:15px;letter-spacing:.14em;padding-bottom:12px;border-bottom:1.5px solid var(--ink);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .cv h3 span{font-family:var(--dots);font-weight:700;font-size:10px;letter-spacing:.18em;color:var(--green)}
@@ -385,9 +391,11 @@ footer{background:var(--deep);color:#C4D2C9;border-top:1.5px solid rgba(255,255,
 
 /* ---------- カーソル・進捗 ---------- */
 .prog{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;z-index:70;background:var(--green);transform:scaleX(0);transform-origin:left;pointer-events:none}
-.cur{position:fixed;left:0;top:0;width:14px;height:14px;margin:-7px 0 0 -7px;border:1.5px solid var(--ink);background:var(--sage);z-index:300;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .3s,width .4s var(--ease),height .4s var(--ease),margin .4s var(--ease),background .3s,rotate .4s var(--ease)}
+.cur{position:fixed;left:0;top:0;width:34px;height:36px;margin:6px 0 0 8px;z-index:300;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .3s}
+.cur svg{display:block;width:100%;height:100%;overflow:visible;transform-origin:50% 60%;transition:transform .5s var(--ease);filter:drop-shadow(3px 3px 0 rgba(157,181,168,.55))}
 .cur.on{opacity:1;visibility:visible}
-.cur.big{width:44px;height:44px;margin:-22px 0 0 -22px;background:rgba(157,181,168,.35);rotate:45deg}
+.cur.big svg{transform:scale(1.45) rotate(-14deg)}
+.cur.down svg{transform:scale(.9) rotate(8deg)}
 @media(hover:none),(pointer:coarse){.cur{display:none}}
 
 @media(prefers-reduced-motion:reduce){
@@ -408,7 +416,7 @@ footer{background:var(--deep);color:#C4D2C9;border-top:1.5px solid rgba(255,255,
   <div class="loader-n" id="loaderN">000</div>
 </div>
 <div class="prog" id="prog" aria-hidden="true"></div>
-<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"><svg viewBox="0 0 34 36"><path d="M17.4 9.2c.2-2.6 1.2-4.6 3.2-6" fill="none" stroke="#5A4028" stroke-width="2" stroke-linecap="round"/><path d="M20.4 4.6c2.6-2.6 6.2-2.8 8.6-1-1.6 3-5.2 4.2-8.6 1z" fill="#8DBF8A" stroke="#1E2320" stroke-width="1.4" stroke-linejoin="round"/><path d="M17 8.6c3.2-1.4 7.6-.6 10.8 2.4 3.6 3.4 4.8 8.6 3.2 13.2-1.8 5.4-7 9.2-13.6 9.4C10.8 33.800 5.200 30.400 3.200 25 1.400 20.200 2.600 14.800 6.400 11.400 9.600 8.400 13.800 7.400 17 8.600z" fill="#D8A548" stroke="#1E2320" stroke-width="1.6" stroke-linejoin="round"/><path d="M7.400 16.200c1.200-2.400 3.200-4 5.600-4.800" fill="none" stroke="#F3D58C" stroke-width="2.200" stroke-linecap="round"/><g fill="#A9772A"><circle cx="12" cy="20" r=".9"/><circle cx="18" cy="16" r=".9"/><circle cx="23" cy="21" r=".9"/><circle cx="15" cy="26" r=".9"/><circle cx="21" cy="27.500" r=".9"/><circle cx="26" cy="16.500" r=".9"/><circle cx="9" cy="25" r=".9"/></g></svg></div>
 
 <header class="hd" id="hd">
   <div class="hd-in">
@@ -475,7 +483,7 @@ footer{background:var(--deep);color:#C4D2C9;border-top:1.5px solid rgba(255,255,
       <div class="block pop" data-par=".06"></div>
       <img class="ill pop d1" src="assets/worker.webp" width="1180" height="1096" alt="ヘルメット姿でタブレットを操作する現場監督のイラスト" fetchpriority="high">
       <p class="tate rv d2" aria-label="データの見える化、業務の自動化で、みんなの仕事をすこしラクに。">
-        <b>データの見える化</b><b>業務の自動化</b><span>で、みんなの仕事を<br>すこしラクに。</span>
+        <b>データの見える化</b><span class="c2"><b>業務の自動化</b>で、</span><span class="c3">みんなの仕事をすこしラクに。</span>
       </p>
     </div>
   </div>
@@ -693,8 +701,24 @@ footer{background:var(--deep);color:#C4D2C9;border-top:1.5px solid rgba(255,255,
         <p class="pf-name rv">樋口 周人</p>
         <p class="pf-en rv">SHUTO HIGUCHI</p>
         <p class="pf-role rv">KONOHITO 代表/博士(医学)</p>
-        <p class="rv">産業医科大学大学院で7年間、労働者の健康と行動に関する研究に従事し、医学博士を取得。介護現場におけるエンゲージメントやストレス要因の定量分析、国際論文の執筆、学会発表など、研究成果の社会実装を意識した活動を続け、現在も同大学の学外研究員として、現場と学術をつなぐ立場で取り組んでいます。</p>
-        <p class="rv">実務では、介護事業所にて研究員・プロジェクトリーダーを兼任し、現場起点のDX推進を担当。介護保険請求・記録・営業・採用・人事・財務といった複数の実務経験を踏まえ、Google Cloudを活用したデータ基盤構築、業務自動化、ダッシュボード化、AI導入まで、開発から運用までを一貫して手がけてきました。医療・介護・障害福祉の現場と共通言語を持つことを強みに、現場特有の制約や文化を理解した支援が可能です。水産業など他業種への展開も進めています。</p>
+        <dl class="pf-story">
+          <div class="rv">
+            <dt>研究</dt>
+            <dd>産業医科大学大学院で7年間、労働者の健康と行動に関する研究に従事し、医学博士を取得しました。介護現場におけるエンゲージメントやストレス要因の定量分析、国際論文の執筆、学会発表など、研究成果の社会実装を意識した活動を続けています。現在も同大学の外部研究員として、現場と学術をつなぐ立場で研究を継続しています。</dd>
+          </div>
+          <div class="rv">
+            <dt>実務</dt>
+            <dd>県内最大規模の介護事業所で研究員とプロジェクトリーダーを兼任し、現場起点のDX推進を担当。介護保険請求、記録、営業、採用、人事、財務といった実務経験を踏まえ、バックエンドからフロントエンドまでの開発、Google Cloudを活用したデータ基盤構築、業務自動化、ダッシュボード化、AI導入までの仕組みづくりを行ってきました。単なる効率化ではなく、コスト最適化や負担感の軽減につながる改善を実装しています。</dd>
+          </div>
+          <div class="rv">
+            <dt>強み</dt>
+            <dd>医療・介護・障害福祉の領域での現場経験と共通言語を持ち、現場特有の制約や文化を理解した支援が可能です。水産業など他業種への展開も進めており、机上の分析にとどまらず、最後まで使いきれる形になるまで伴走します。</dd>
+          </div>
+          <div class="rv">
+            <dt>いま</dt>
+            <dd>「KONOHITO」の代表として、地域の実情に合わせた“デジタルの地産地消”を軸に、無理なく運用できるDXを推進しています。専門性よりも属人的な努力で支えられてきた現場に、数字を基盤にした意思決定と、続けられる仕組みを届けること。その積み重ねが、ケアや対話に時間を回せる未来につながると考えています。</dd>
+          </div>
+        </dl>
       </div>
     </div>
     <div class="cv">
@@ -902,7 +926,9 @@ footer{background:var(--deep);color:#C4D2C9;border-top:1.5px solid rgba(255,255,
       cur.classList.toggle('big', !!e.target.closest('a,button,.tile,.svc'));
       if (!run) { run = true; requestAnimationFrame(loop); }
     }, { passive: true });
-    document.addEventListener('pointerleave', () => cur.classList.remove('on'));
+    document.documentElement.addEventListener('pointerleave', () => cur.classList.remove('on'));
+    addEventListener('pointerdown', () => cur.classList.add('down'));
+    addEventListener('pointerup', () => cur.classList.remove('down'));
     $$('[data-mag]').forEach(el => {
       el.addEventListener('pointermove', e => {
         const r = el.getBoundingClientRect();
