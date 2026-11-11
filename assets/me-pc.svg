@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 384" fill="none" stroke="#1E2320" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- からだ(紺のトップス) -->
+  <path d="M84 300c2-52 20-86 58-98 14-5 30-6 44-6 18 0 36 3 50 9 34 14 48 46 50 95l2 46H82z" fill="#2B3148"/>
+  <!-- くび -->
+  <path d="M160 158c1 14 0 28-3 40 10 14 44 15 54 1-3-12-4-27-3-41" fill="#fff"/>
+  <path d="M157 198c10 14 44 15 54 1" />
+  <!-- かお -->
+  <path d="M133 104c-3 34 12 66 46 70 36 4 56-24 56-62 0-36-22-58-52-58-28 0-48 20-50 50z" fill="#fff"/>
+  <!-- みみ -->
+  <path d="M234 110c10-4 16 4 13 14-2 8-8 12-15 10" fill="#fff"/>
+  <!-- かみ -->
+  <path d="M129 112c-10-34 4-66 34-76 10-12 34-12 46-2 22-2 38 16 38 40 2 12 0 24-6 36-4-14-10-24-20-30-8 8-22 10-32 4-10 10-28 12-40 4-8 6-14 14-20 24z" fill="#2E2A27"/>
+  <path d="M163 36c-4 8-4 16 0 22M209 34c2 8 0 16-6 22" stroke="#1E2320"/>
+  <!-- め・まゆ・くち(画面を見ている) -->
+  <circle cx="165" cy="124" r="4.5" fill="#1E2320" stroke="none"/>
+  <circle cx="204" cy="124" r="4.5" fill="#1E2320" stroke="none"/>
+  <path d="M155 108c6-4 12-4 18-1M196 107c6-3 12-3 18 1" stroke-width="4"/>
+  <path d="M170 146c8 8 22 8 30 0" stroke-width="4"/>
+  <!-- ノートPC(背面) -->
+  <path d="M68 272c0-6 4-10 10-10l206-4c6 0 10 4 10 10l8 90-242 4z" fill="#C9CDCB"/>
+  <rect x="168" y="298" width="24" height="24" fill="#9DB5A8" stroke-width="4"/>
+  <path d="M36 360l290-5 8 19-304 4z" fill="#EDEFEC"/>
+  <!-- 手(キーボードの両わきにのぞく) -->
+  <path d="M48 356c-6-10 0-22 12-22 6 0 10 4 10 10" fill="#fff"/>
+  <path d="M312 352c6-10 0-22-12-22-6 0-10 4-10 10" fill="#fff"/>
+  <!-- 画面から出てくるグラフ -->
+  <path d="M290 248c12-30 16-64 12-98" stroke="#9DB5A8" stroke-width="4" stroke-dasharray="2 12"/>
+  <rect x="262" y="72" width="84" height="66" fill="#fff" stroke-width="4"/>
+  <path d="M278 122v-14M296 122v-26M314 122v-20M332 122v-36" stroke="#6F8F80" stroke-width="9" stroke-linecap="butt"/>
+</svg>
